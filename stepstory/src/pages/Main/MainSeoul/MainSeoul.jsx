@@ -1,26 +1,25 @@
 import React from 'react';
-import './Main.css';
-import Footer from '../Footer/footer';
-import LeftPane from '../LeftPane/LeftPane';
-import RightPane from '../RightPane/RightPane';
+import Footer from '../../../components/Footer/footer';
+import LeftPane from '../../../components/LeftPane/LeftPane';
+import RightPane from '../../../components/RightPane/RightPane';
 
 // 전체 화면 컴포넌트
-const Main = () => {
+export default function MainSeoul  () {
 
     //로그인 정보
     const loggedInInfo = {isLoggedIn: true};
     //페이지 정보
-    const pageInfo = {page: 'main'};
+    const pageInfo = {page: 'mainSeoul'};
 
     return (
         <div className="main">
             <div className="main-content">
                 <LeftPane loggedInInfo={loggedInInfo}/>
-                <RightPane pageInfo={pageInfo}/>
+                <RightPane pageInfo={pageInfo} />
             </div>
             <Footer />
         </div>
     );
 };
 
-export default Main;
+

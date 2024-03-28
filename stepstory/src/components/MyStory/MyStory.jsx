@@ -1,4 +1,4 @@
-import './MyStory.css';
+import './myStoryStryle.css';
 import Footer from '../Footer/footer';
 import LeftPane from '../LeftPane/LeftPane';
 import RightPane from '../RightPane/RightPane';

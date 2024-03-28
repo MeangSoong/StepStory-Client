@@ -1,5 +1,5 @@
 import React from 'react';
-import './profile.css'
+import './profileStyle.css'
 import defaultProfileImg from '../../assets/images/defaultprofile.png';
 
 export default function Profile ()  {

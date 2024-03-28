@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './sign.css';
+import './signStyle.css';
 import uploadImg from '../../image/uploadImg.png'; // 이미지 파일 임포트
 import LeftPane from '../LeftPane/LeftPane';
 
