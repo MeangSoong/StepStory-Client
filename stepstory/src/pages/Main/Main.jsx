@@ -1,8 +1,8 @@
 import React from 'react';
 import './Main.css';
-import Footer from '../Footer/footer';
-import LeftPane from '../LeftPane/LeftPane';
-import RightPane from '../RightPane/RightPane';
+import Footer from '../../components/Footer/footer';
+import LeftPane from '../../components/LeftPane/LeftPane';
+import RightPane from '../../components/RightPane/RightPane';
 
 // 전체 화면 컴포넌트
 const Main = () => {
