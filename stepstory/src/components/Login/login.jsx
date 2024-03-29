@@ -63,10 +63,10 @@ const LoginRightPane = () => {
                     <br/>
                     <button className="login-btn" onClick={handleLogin}>로그인</button>
                 </div>
-                <a href="/oauth2/authorization/kakao" className="social-login-link">
+                <a href="https://stepstory.site/oauth2/authorization/kakao" className="social-login-link">
                     <img src={kakaoLogin} alt="Kakao Login" className="social-login-btn"/>
                 </a>
-                <a href="/oauth2/authorization/google" className="social-login-link">
+                <a href="https://stepstory.site/oauth2/authorization/google" className="social-login-link">
                     <img src={googleLogin} alt="Google Login" className="social-login-btn"/>
                 </a>
 
