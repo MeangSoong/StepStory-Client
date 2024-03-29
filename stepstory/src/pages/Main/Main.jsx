@@ -4,12 +4,9 @@ import Footer from '../../components/Footer/footer';
 import LeftPane from '../../components/LeftPane/LeftPane';
 import RightPane from '../../components/RightPane/RightPane';
 
-// 전체 화면 컴포넌트
 const Main = () => {
 
-    //로그인 정보
-    const loggedInInfo = {isLoggedIn: true};
-    //페이지 정보
+    const loggedInInfo = {isLoggedIn: false};
     const pageInfo = {page: 'main'};
 
     return (
