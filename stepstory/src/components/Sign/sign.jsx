@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import './sign.css';
+import React, { useState, useRef } from 'react';
+import './signStyle.css';
 import uploadImg from '../../image/uploadImg.png'; // 이미지 파일 임포트
 import LeftPane from '../LeftPane/LeftPane';
+import axios from 'axios';
 
 const RightPane = () => {
     const [userId, setUserId] = useState('');
@@ -92,6 +93,8 @@ const RightPane = () => {
 
             setIsSignupComplete(true);
             alert("회원가입이 완료되었습니다.");
+            //회원 가입 후 로그인 페이지로 이동
+            window.location.href = "/login";
         } catch (error) {
             console.error("Error during sign up:", error);
         }

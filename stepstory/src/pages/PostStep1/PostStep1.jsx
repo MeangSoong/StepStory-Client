@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './step1.css';
+import './step1Style.css';
 import logo from '../../image/Blogo.svg';
 import Calendar from "./calendar";
 import crownIcon from '../../image/crown.png';
-import MapComponent from '../Map/Map';
+import MapComponent from '../../components/Map/Map';
 
 function PostStep() {
     const location = '새 게시글 작성하기 (Step1)';
