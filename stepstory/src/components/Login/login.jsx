@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css'; // 스타일 파일을 불러옵니다.
-import logo from '../../image/Blogo.svg';
 import kakaoLogin from '../../image/loginKakao.png';
 import googleLogin from '../../image/loginGoogle.png';
 import LeftPane from '../LeftPane/LeftPane';
@@ -12,6 +12,11 @@ const LoginRightPane = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState(false); // 로그인 에러 상태 추가
+    const navigate = useNavigate(); // useNavigate 훅 사용
+
+    function handleSignupClick() {
+        navigate('/signup'); // 회원가입 페이지로 이동
+    }
 
     const handleLogin = () => {
         // 로그인 처리 로직을 여기에 추가합니다.
@@ -63,14 +68,14 @@ const LoginRightPane = () => {
                     <br/>
                     <button className="login-btn" onClick={handleLogin}>로그인</button>
                 </div>
-                <a href="/oauth2/authorization/kakao" className="social-login-link">
+                <a href="https://stepstory.site/oauth2/authorization/kakao" className="social-login-link">
                     <img src={kakaoLogin} alt="Kakao Login" className="social-login-btn"/>
                 </a>
-                <a href="/oauth2/authorization/google" className="social-login-link">
+                <a href="https://stepstory.site/oauth2/authorization/google" className="social-login-link">
                     <img src={googleLogin} alt="Google Login" className="social-login-btn"/>
                 </a>
 
-                <h5 className="signup-text">아직 회원이 아니신가요? <button className="signup-btn"> 회원가입</button></h5>
+                <h5 className="signup-text">아직 회원이 아니신가요? <button className="signup-btn" onClick={handleSignupClick}> 회원가입</button></h5>
             </div>
         </div>
     );
