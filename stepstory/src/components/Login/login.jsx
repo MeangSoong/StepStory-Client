@@ -42,7 +42,8 @@ const LoginRightPane = () => {
             form,{
                 headers : {
                     'Content-Type': 'multipart/form-data'
-                }
+                },
+                withCredentials: true
             });
 
             //로그인 성공하여 상태변화
