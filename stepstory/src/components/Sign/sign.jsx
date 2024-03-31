@@ -142,7 +142,6 @@ const RightPane = () => {
                     <button onClick={() => checkDuplicate(nickname, 'nickname')} className='btn2'>중복확인</button>
                 </div>
                 {nicknameChecked && (nicknameDuplicate ? <div style={{ color: 'red' }}>이미 사용 중인 닉네임입니다.</div> : <div style={{ color: 'green' }}>사용 가능한 닉네임입니다.</div>)}
-                {nicknameChecked && !nicknameDuplicate && <div style={{ color: 'green' }}>사용 가능한 닉네임입니다.</div>}
                 <br/>
                 <textarea ref={introductionRef} placeholder="소개글을 입력하세요" className="introduction-input" onChange={(e) => setIntroduction(e.target.value)}></textarea>
                 <br/>
