@@ -8,11 +8,6 @@ import customAxios from '../../apis/axios';
 import axios from 'axios';
 
 
-
-
-
-
-
 // 오른쪽 화면 컴포넌트
 const LoginRightPane = () => {
     const [successLogin, setSuccessLogin] = useState(false);
@@ -40,10 +35,8 @@ const LoginRightPane = () => {
         try{
             await axios.post(
             `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/login`,
-            form,{
-                headers: {"Content-Type": "multipart/form-data"}, 
-                     withCredentials: true
-          }
+            form,
+            { withCredentials: true }
             );
 
             //로그인 성공하여 상태변화
