@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import './style.css';
+import './step1Style.css';
 import logo from '../../image/Blogo.svg';
 import Calendar from "./calendar";
 import crownIcon from '../../image/crown.png';
-import MapComponent from '../../components/Map/Map'
+import MapComponent from '../../components/Map/Map';
 
 function PostStep() {
     const location = '새 게시글 작성하기 (Step1)';
@@ -13,7 +13,6 @@ function PostStep() {
     const [selectedImageRect, setSelectedImageRect] = useState(null); // 선택된 이미지의 위치 정보
     const [crownPosition, setCrownPosition] = useState({ top: 0, left: 0 }); // 왕관 위치
     const imagesPerPage = 9;
-
 
     const handleImageUpload = (event) => {
         const { files } = event.target;

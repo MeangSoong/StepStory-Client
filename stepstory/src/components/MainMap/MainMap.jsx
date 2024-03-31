@@ -26,6 +26,7 @@ import JJ from './Jeju/JJ';
 import JB from './Jeonbuk/JB';
 import JN from './Jeonnam/JN';
 import SU from './Seoul/SU';
+import { Link } from 'react-router-dom';
 
 export default function MainMap ()  {
 
@@ -78,7 +79,7 @@ export default function MainMap ()  {
                 <g id="TotalMap">
                     <DokdoAndUlleungdo/>   
                     <Jeju/>  
-                    <Seoul />           
+                    <Link to={'/seoul'}><Seoul /></Link>        
                     <Gyeonggi />     
                     <Chungbuk />     
                     <Chungnam />
