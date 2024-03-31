@@ -48,6 +48,11 @@ const Main = () => {
                         const response = await axios.get(`users/user`, {
                             headers
                         });
+                        console.log(response.data);
+                        console.log(response.data.profile_image_url);
+                        console.log(response.data.self_info);
+                        console.log(response.data.userId);
+                        console.log(response.data.nickname);
             
                         if(response.data ===null){
                             console.log('login fail');
