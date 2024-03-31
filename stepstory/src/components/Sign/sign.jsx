@@ -71,7 +71,7 @@ const RightPane = () => {
         }
         try {
             // 회원가입 요청
-            const signupResponse = await axios.post(`${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/sign-up`, {
+            const signupResponse = await customAxios.post('auth/sign-up', {
                 serial_id: userId,
                 password: password
             });
@@ -127,15 +127,20 @@ const RightPane = () => {
                     )}
                 </label>
                 <div>
-                    <div className="id-input-group">
-                        <input ref={userIdRef} type="text" placeholder="아이디를 입력하세요" className="id-input" onChange={(e) => setUserId(e.target.value)} />
-                        <button onClick={() => checkDuplicate(userId, 'userId')} className='btn-duplicate-check'>중복확인</button>
-                    </div>
+                <div className="id-input-group">
+                    <input ref={userIdRef} type="text" placeholder="아이디를 입력하세요" className="id-input" onChange={(e) => setUserId(e.target.value)} />
+                    <button onClick={() => checkDuplicate(userId, 'userId')} className='btn-duplicate-check'>중복확인</button>
+                    {userIdChecked && userIdDuplicate && <div style={{ color: 'red', marginTop: '5px' }}>이미 사용 중인 아이디입니다.</div>}
+                </div>
                     <input ref={passwordRef} type="password" placeholder="비밀번호를 입력하세요" className="pw-input" onChange={(e) => setPassword(e.target.value)} />
                     <input ref={confirmPasswordRef} type="password" placeholder="비밀번호를 한번 더 입력하세요" className="pw-input" onChange={(e) => setConfirmPassword(e.target.value)} />
                     <br/>
                 </div>
-                <input ref={nicknameRef} type="text" placeholder="닉네임 입력" className="nickname-input" onChange={(e) => setNickname(e.target.value)} />
+                <div className="nickname-input-group"> {/* 스타일을 적용하기 위해 추가적인 div를 사용할 수 있습니다 */}
+                    <input ref={nicknameRef} type="text" placeholder="닉네임 입력" className="nickname-input" onChange={(e) => setNickname(e.target.value)} />
+                    <button onClick={() => checkDuplicate(nickname, 'nickname')} className='btn2'>중복확인</button>
+                    {nicknameChecked && nicknameDuplicate && <div style={{ color: 'red', marginTop: '5px' }}>이미 사용 중인 닉네임입니다.</div>}
+                </div>
                 <button onClick={() => checkDuplicate(nickname, 'nickname')} className='btn2'>중복확인</button>
                 {nicknameChecked && (nicknameDuplicate ? <div style={{ color: 'red' }}>이미 사용 중인 닉네임입니다.</div> : <div style={{ color: 'green' }}>사용 가능한 닉네임입니다.</div>)}
                 <br/>
