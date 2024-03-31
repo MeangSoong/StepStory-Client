@@ -60,7 +60,9 @@ const Login2 = () => {
     headers
   })
     .then(() => {
+      console.log('로그아웃까진 성공');
       localStorage.clear();
+      console.log('로컬스토리지 삭제');
       navigate('/');
     })
     .catch((error) => {
