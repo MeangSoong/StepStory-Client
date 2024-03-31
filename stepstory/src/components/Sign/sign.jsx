@@ -5,6 +5,7 @@ import axios from 'axios';
 import './sign.css';
 import uploadImg from '../../image/uploadImg.png'; // 이미지 파일 임포트
 import LeftPane from '../LeftPane/LeftPane';
+import { Cookies } from 'react-cookie';
 
 const RightPane = () => {
     const [userId, setUserId] = useState('');
