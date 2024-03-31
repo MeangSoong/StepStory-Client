@@ -54,14 +54,18 @@ const Login2 = () => {
   const headers = {
     Authorization: `Bearer ${accessToken}`
   };
-  const handleLogoutClick = () => {
-    axios.post('/auth/logout', {
-    headers
-  })
-    .then(() => {
-      localStorage.clear();
-      navigate('/');
+  const handleLogoutClick = async() => {
+    await axios.post('/auth/logout', {}, { // 빈 객체를 본문으로 추가
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
     })
+    .then(() => {
+      console.log('로그아웃까진 성공');
+      localStorage.clear();
+      console.log('로컬스토리지 삭제');
+      window.location.reload();
+    })  
     .catch((error) => {
       console.error('로그아웃 에러:', error);
     });
