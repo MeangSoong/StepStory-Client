@@ -6,6 +6,7 @@ import open from "../../image/OpenD.png";
 import close from "../../image/CloseD.png";
 import Profile from '../Profile/Profile';
 import axios from './../../apis/axios';
+import { Cookies } from 'react-cookie';
 
 // 상단 로그인에 따른 상태변화
 function UpState({ loggedInInfo, profile_image_url, self_intro, nickname }) {
@@ -48,8 +49,20 @@ const Login1 = ({profile_image_url, self_intro, nickname}) => (
 const Login2 = () => {
   const [isHovered, setIsHovered] = useState(false); // 버튼의 호버 상태를 추적하기 위한 상태 추가
   const navigate = useNavigate(); // useNavigate 훅 사용
+  const cookies = new Cookies();
+  const accessToken = cookies.get('access_token');
+
+  if(accessToken !== null){
+    console.log('access token 있음')
+    const headers = {
+      Authorization: `Bearer ${accessToken}`
+    };
+  }
+
   const handleLogoutClick = () => {
-    axios.post('/auth/logout')
+    axios.post('/auth/logout', {
+    headers
+  })
     .then(() => {
       localStorage.clear();
       navigate('/');
