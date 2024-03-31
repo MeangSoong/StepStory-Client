@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/footer';
 import LeftPane from '../../components/LeftPane/LeftPane';
 import RightPane from '../../components/RightPane/RightPane';
 import {Cookies} from 'react-cookie';
+import { useCookies } from 'react-cookie';
 import axios from '../../apis/axios';
 
 
@@ -14,9 +15,9 @@ const Main = () => {
     const [userId, setUserId] = useState(null);
     const [nickname, setNickname] = useState(null);
 
-
     const [loggedInInfo, setLoggedInfo] = useState(false);
     const pageInfo = {page: 'main'};
+    const [cookies, setCookie, removeCookie] = useCookies(['access_token']);
 
     // local storage 한번 확인하고-> 엑세스 토큰(쿠키 안에 있음) -> 이래도 없음면 false처리, 있으면, back에다가 유저정보 확인 정보 확인 가져와 true 전환
     
@@ -33,9 +34,11 @@ const Main = () => {
                 setLoggedInfo(true);
             }else{
                 //쿠키 확인
-                const cookies = new Cookies();    
-                const accessToken = cookies?.get("access_token");
+                const accessToken = cookies.access_token;
+                console.log(accessToken);
+
                 if(accessToken !== null){
+                    console.log('access token 있음')
                     const headers = {
                         Authorization: `Bearer ${accessToken}`
                     };
@@ -50,19 +53,20 @@ const Main = () => {
                             console.log('login fail');
                         }
                         else{
+                            console.log('로컬스토리지에 저장 시도');
                             //로그인 된 leftPane 으로 변경
                             setLoggedInfo(true);
+
+                            setProfile_image_url(response.data.data.profile_image_url);
+                            setSelf_intro(response.data.data.self_info);
+                            setUserId(response.data.data.userId);
+                            setNickname(response.data.data.nickname);
             
-                            setProfile_image_url(response.data.profile_image_url);
-                            setSelf_intro(response.data.self_info);
-                            setUserId(response.data.userId);
-                            setNickname(response.data.nickname);
-            
-                            //local storage에서 저장, 비밀번호를 제외한 모든걸 저장하는게 좋다.(애초에 안 온데 ㅠ)
-                            localStorage.setItem("profile_image_url",profile_image_url);
-                            localStorage.setItem("self_intro",self_intro);
-                            localStorage.setItem("userId",userId);
-                            localStorage.setItem("nickname",nickname);
+                            //local storage에서 저장, 비밀번호를 제외한 모든걸 저장하는게 좋다.(애초에 안 옴 ㅠ)
+                            localStorage.setItem("profile_image_url", response.data.data.profile_image_url);
+                            localStorage.setItem("self_intro", response.data.data.self_info);
+                            localStorage.setItem("userId", response.data.data.userId.toString());
+                            localStorage.setItem("nickname", response.data.data.nickname);
                         }
                     }catch(error){
                         console.error("Nor info:", error);
@@ -73,57 +77,8 @@ const Main = () => {
             }
         }
         fetchData();
-    },[]);
+    },[cookies]);
 
-    // //localstorage 확인 logic
-    // if(localStorage.getItem('userId') !==null ){
-    //     const profile_image_url = localStorage.getItem("profile_image_url");
-    //     const self_intro =  localStorage.getItem("self_intro");
-    //     const userId = localStorage.getItem("userId");
-    //     const nickname = localStorage.getItem("nickname");
-
-    //     setLoggedInfo(true);
-    // }
-    // //local storage에 없는경우 아래 실행
-    // else
-    // {//쿠키있는지 확인
-    //     const cookies = new Cookies();    
-    //     const accessToken = cookies?.get("access_token");
-    //     if(accessToken !== null){
-    //         const headers = {
-    //             Authorization: `Bearer ${accessToken}`
-    //         };
-
-    //         //respose에 application/json 형식으로 정보가 날라온다.
-    //         const response = axios.get(`users/user`, {
-    //             headers
-    //         });
-
-    //         if(response ==null){
-    //             console.log('login fail');
-    //         }
-    //         else{
-    //             //로그인 된 leftPane 으로 변경
-    //             setLoggedInfo(true);
-
-    //             const profile_image_url = response.data.profile_image_url;
-    //             const self_info = response.data.self_info;
-    //             const userId = response.data.userId;
-    //             const nickname = response.data.nickname;
-
-    //             //local storage에서 저장, 비밀번호를 제외한 모든걸 저장하는게 좋다.(애초에 안 온데 ㅠ)
-    //             localStorage.setItem("profile_image_url",profile_image_url);
-    //             localStorage.setItem("self_intro",self_info);
-    //             localStorage.setItem("userId",userId);
-    //             localStorage.setItem("nickname",nickname);
-    //         }
-    //     }
-    //     // access token이 없는경우 페이지 로그인 상테 설정
-    //     else{
-    //         setLoggedInfo(false);
-    //     }
-    // }
-    
     
 
 

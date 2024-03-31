@@ -4,12 +4,8 @@ import {  useNavigate } from 'react-router-dom';
 import kakaoLogin from '../../image/loginKakao.png';
 import googleLogin from '../../image/loginGoogle.png';
 import LeftPane from '../LeftPane/LeftPane';
-import axios from '../../apis/axios';
-
-
-
-
-
+import customAxios from '../../apis/axios';
+import axios from 'axios';
 
 
 // 오른쪽 화면 컴포넌트
@@ -26,54 +22,25 @@ const LoginRightPane = () => {
 
 
 
-     const handleLogin = async () => {
-        // 로그인 처리 로직을 여기에 추가합니다.
-
-        //form data 형식 생성
+    const handleLogin = async () => {
         let form = new FormData();
-        form.append('serial_id',username); //backend에서 저장하는 키 명이 serial_id임
-        form.append('password',password);
-
-        //back-end에서 유저정보 가져오기
-        
-        try{
+        form.append('serial_id', username);
+        form.append('password', password);
+    
+        try {
             await axios.post(
-            `/auth/login`,
-            form,{
-                headers : {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-
-            //로그인 성공하여 상태변화
-            setSuccessLogin(true);
-            console.log('성공') //통신 성공여부 표시
+                `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/login`,
+                form,
+                { withCredentials: true }
+            );
             
-        }catch(error){
-            //로그인 실패해서 그대로
-            setSuccessLogin(false);
-            console.log(error); //error 표기
-        }
-
-        //로그인시 메인페이지로 전환
-        
-        
-
-        // 예시: 로그인 실패 시 에러 메시지 띄우기
-        // if (username !== 'correct_username' || password !== 'correct_password') {
-        //     setLoginError(true); // 로그인 에러 상태 업데이트
-        //     return;
-        // }
-        if(successLogin===false){
-            alert('잘못된 아이디와 비밀번호 입니다.')
-            return ;
-        }
-
-        // 로그인 성공 시 에러 상태 초기화
-        if(successLogin === true){
-            setLoginError(false);
             alert("로그인에 성공했습니다.");
-            window.location.href = "/"
+            setLoginError(false); 
+            navigate('/'); // 메인 페이지로 이동
+        } catch (error) {
+            console.error('로그인 실패:', error);
+            setLoginError(true);
+            alert('잘못된 아이디와 비밀번호입니다.');
         }
     };
 
