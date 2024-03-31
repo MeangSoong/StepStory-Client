@@ -30,7 +30,7 @@ const RightPane = () => {
         let url = `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/`;
         let urls = type === 'userId' ? 'id-duplicate' : 'nickname-duplicate';
         try {
-            const response = await customAxios.post(url, {
+            const response = await customAxios.post(urls, {
                 [type === 'userId' ? 'serial_id' : 'nickname']: value
             });
             if (type === 'userId') {
