@@ -29,7 +29,7 @@ const RightPane = () => {
     const checkDuplicate = async (value, type) => {
         let urls = type === 'userId' ? 'auth/id-duplicate' : 'auth/nickname-duplicate';
         try {
-            const response = await customAxios.post(urls, {
+            const response = await customAxios.get(urls, {
                 [type === 'userId' ? 'serial_id' : 'nickname']: value
             });
             if (type === 'userId') {
