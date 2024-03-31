@@ -7,7 +7,7 @@ export default function YongsanLoader () {
                 <div className="paw_yongsan disappear">   
                     <svg className="icon"><use href="#paw_yongsan" />               
                         <symbol id="paw_yongsan" viewBox="0 0 249 209.32">
-                            <image href='/image/사람.png' x="0" y="0" height="150px" width="150px" />
+                            <image href='/image/브라키오.png' x="0" y="0" height="150px" width="150px" />
                         </symbol>
                     </svg>
                 </div>
