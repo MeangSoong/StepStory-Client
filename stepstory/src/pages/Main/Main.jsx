@@ -35,8 +35,12 @@ const Main = () => {
                 setLoggedInfo(true);
             }else{
                 //쿠키 확인
-                const accessToken = cookies.access_token;
-                console.log(accessToken); 
+                const accessToken = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('access_token='))
+                ?.split('=')[1];
+
+                console.log(accessToken);
                 if(accessToken !== null){
                     const headers = {
                         Authorization: `Bearer ${accessToken}`
