@@ -93,12 +93,12 @@ const RightPane = () => {
             // 프로필 업데이트 요청
             const formData = new FormData();
             formData.append('file', profileImage);
-            formData.append('message', JSON.stringify({ nickname, self_info: introduction }));
+            formData.append('message', JSON.stringify({ nickname, self_intro: introduction }));
 
             await axios.patch(`${process.env.REACT_APP_SERVER_PORT}/api/v1/users/user`, formData, {
                 headers: {
                     'Authorization': `Bearer ${access_token}`,
-                    'Content-Type': 'multipart/form-data',
+                    // 'Content-Type': 'multipart/form-data'을 제거하세요.
                 },
             });
 
