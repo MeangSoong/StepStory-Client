@@ -67,7 +67,7 @@ const LoginRightPane = () => {
         if(successLogin === true){
             setLoginError(false);
             alert("로그인에 성공했습니다.");
-            window.location.href = "/"
+            navigate('/'); // 메인 페이지로 이동
         }
     };
 
