@@ -54,15 +54,19 @@ const Main = () => {
                             console.log('login fail');
                         }
                         else{
+                            console.log('로컬스토리지에 저장 시도');
                             //로그인 된 leftPane 으로 변경
                             setLoggedInfo(true);
-            
+                            console.log(response.data.data.profile_image_url);
+                            console.log(response.data.data.self_info);
+                            console.log(response.data.data.userId);
+                            console.log(response.data.data.nickname);
                             setProfile_image_url(response.data.data.profile_image_url);
                             setSelf_intro(response.data.data.self_info);
                             setUserId(response.data.data.userId);
                             setNickname(response.data.data.nickname);
             
-                            //local storage에서 저장, 비밀번호를 제외한 모든걸 저장하는게 좋다.(애초에 안 온데 ㅠ)
+                            //local storage에서 저장, 비밀번호를 제외한 모든걸 저장하는게 좋다.(애초에 안 옴 ㅠ)
                             localStorage.setItem("profile_image_url",profile_image_url);
                             localStorage.setItem("self_intro",self_intro);
                             localStorage.setItem("userId",userId);
