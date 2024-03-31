@@ -18,6 +18,8 @@ const Main = () => {
     const [loggedInInfo, setLoggedInfo] = useState(false);
     const pageInfo = {page: 'main'};
 
+    const [cookies, setCookie, removeCookie] = useCookies(['access_token']);
+
     // local storage 한번 확인하고-> 엑세스 토큰(쿠키 안에 있음) -> 이래도 없음면 false처리, 있으면, back에다가 유저정보 확인 정보 확인 가져와 true 전환
     
     
@@ -33,9 +35,8 @@ const Main = () => {
                 setLoggedInfo(true);
             }else{
                 //쿠키 확인
-                const cookies = new Cookies();    
-                const accessToken = cookies?.get("access_token");
-                console.log(accessToken);
+                const accessToken = cookies.access_token;
+                console.log(accessToken); 
                 if(accessToken !== null){
                     const headers = {
                         Authorization: `Bearer ${accessToken}`
