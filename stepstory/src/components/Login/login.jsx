@@ -11,6 +11,7 @@ import axios from '../../apis/axios';
 
 
 
+
 // 오른쪽 화면 컴포넌트
 const LoginRightPane = () => {
     const [successLogin, setSuccessLogin] = useState(false);
@@ -30,21 +31,18 @@ const LoginRightPane = () => {
 
         //form data 형식 생성
         let form = new FormData();
-        form.append('serial_id', this.username); //backend에서 저장하는 키 명이 serial_id임
-        form.append('password', this.password);
-
+        form.append('serial_id',username); //backend에서 저장하는 키 명이 serial_id임
+        form.append('password',password);
 
         //back-end에서 유저정보 가져오기
+        
         try{
-            const response = await axios.post(
-            `auth/login`,
+            await axios.post(
+            `/auth/login`,
             form,{
-                headers:{
-                    "Content-Type" : "multipart/form-data"    
-                },
-                // transformRequest: [
-                //     () => {return form}
-                // ] 이미 form-data의 형식으로 보내기에 굳이 바꿀 필요가 없음
+                headers : {
+                    'Content-Type': 'multipart/form-data'
+                }
             });
 
             //로그인 성공하여 상태변화
@@ -54,7 +52,7 @@ const LoginRightPane = () => {
         }catch(error){
             //로그인 실패해서 그대로
             setSuccessLogin(false);
-            console.log(error.error.message); //error 표기
+            console.log(error); //error 표기
         }
 
         //로그인시 메인페이지로 전환
@@ -131,7 +129,7 @@ const LoginRightPane = () => {
 // 전체 화면 컴포넌트
 const Login = () => {
     //로그인 정보
-    const loggedInInfo = {isLoggedIn : false};
+    const loggedInInfo = true;
 
     return (
         <div className="login">

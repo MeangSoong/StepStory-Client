@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './leftPane.css';
 import logo from '../../image/Blogo.svg';
 import open from "../../image/OpenD.png";
@@ -8,7 +8,7 @@ import Profile from '../Profile/Profile';
 
 // 상단 로그인에 따른 상태변화
 function UpState({ isLoggedIn, profile_image_url, self_intro, userId, nickname }) {
-  return isLoggedIn ? <Login1 /> : <Logout />;
+  return isLoggedIn ? <Login1 profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname} /> : <Logout />;
 }
 
 // 하단 로그인에 따른 상태변화
@@ -69,7 +69,7 @@ const LeftPane = ({ loggedInInfo, profile_image_url, self_intro, nickname }) => 
   return (
     <div className="left-pane">
       <div className="left-content">
-        <img src={logo} alt="Logo" className="logo"/>
+        <Link to={'/'}><img src={logo} alt="Logo" className="logo"/></Link>
         <UpState isLoggedIn={isLoggedIn} profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname}   />
       </div>
       <div className="logout-container">

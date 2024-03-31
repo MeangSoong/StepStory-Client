@@ -93,8 +93,7 @@ const RightPane = () => {
 
             setIsSignupComplete(true);
             alert("회원가입이 완료되었습니다.");
-            //회원 가입 후 로그인 페이지로 이동
-            window.location.href = "/login";
+
         } catch (error) {
             console.error("Error during sign up:", error);
         }
