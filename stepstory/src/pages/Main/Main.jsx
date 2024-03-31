@@ -3,6 +3,7 @@ import './Main.css';
 import Footer from '../../components/Footer/footer';
 import LeftPane from '../../components/LeftPane/LeftPane';
 import RightPane from '../../components/RightPane/RightPane';
+import { useCookies } from 'react-cookie';
 import {Cookies} from 'react-cookie';
 import axios from '../../apis/axios';
 
