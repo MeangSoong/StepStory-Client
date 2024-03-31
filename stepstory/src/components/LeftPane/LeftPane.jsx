@@ -64,7 +64,7 @@ const Login2 = () => {
       console.log('로그아웃까진 성공');
       localStorage.clear();
       console.log('로컬스토리지 삭제');
-      navigate('/');
+      window.location.reload();
     })  
     .catch((error) => {
       console.error('로그아웃 에러:', error);
