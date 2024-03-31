@@ -75,7 +75,7 @@ const Main = () => {
             }
         }
         fetchData();
-    },[]);
+    },[cookies]);
 
     // //localstorage 확인 logic
     // if(localStorage.getItem('userId') !==null ){
