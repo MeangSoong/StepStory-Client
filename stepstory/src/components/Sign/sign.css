@@ -128,7 +128,26 @@
     box-sizing: border-box; /* 상자 모델을 border-box로 설정합니다. */
 }
 
+.nickname-input{
+    width: 100%; /* add-info-box의 패딩값만큼 너비를 조정합니다. */
+    height: auto;
+    padding: 5px; /* 패딩을 적절히 조정합니다. */
+    margin-top: 10px;
+    /*font-size: 20px;*/
+    flex: 1; /* 아이디 입력 상자를 가능한 한 많은 공간으로 채우도록 설정 */
+    margin-right: 10px; /* 오른쪽 마진 추가 */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* 상자 모델을 border-box로 설정합니다. */
+}
+
 .id-input-group {
+    display: flex; /* Flexbox 레이아웃 적용 */
+    justify-content: space-between; /* 요소들 사이에 공간 배치 */
+    width: 100%; /* 너비 100%로 설정 */
+}
+
+.nickname-input-group {
     display: flex; /* Flexbox 레이아웃 적용 */
     justify-content: space-between; /* 요소들 사이에 공간 배치 */
     width: 100%; /* 너비 100%로 설정 */
