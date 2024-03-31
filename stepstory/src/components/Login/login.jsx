@@ -4,7 +4,8 @@ import {  useNavigate } from 'react-router-dom';
 import kakaoLogin from '../../image/loginKakao.png';
 import googleLogin from '../../image/loginGoogle.png';
 import LeftPane from '../LeftPane/LeftPane';
-import axios from '../../apis/axios';
+import customAxios from '../../apis/axios';
+import axios from 'axios';
 
 
 
@@ -38,7 +39,7 @@ const LoginRightPane = () => {
         
         try{
             await axios.post(
-            `/auth/login`,
+            `${process.env.REACT_APP_SERVER_PORT}/auth/login`,
             form,{
                 headers : {
                     'Content-Type': 'multipart/form-data'
