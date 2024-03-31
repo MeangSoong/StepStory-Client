@@ -37,11 +37,14 @@ const LoginRightPane = () => {
             `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/login`,
             form,
             { withCredentials: true }
-            );
+            ).then(()=>{
+                setSuccessLogin(true);
+                console.log('성공') //통신 성공여부 표시
+            });
 
-            //로그인 성공하여 상태변화
-            setSuccessLogin(true);
-            console.log('성공') //통신 성공여부 표시
+            // //로그인 성공하여 상태변화
+            // setSuccessLogin(true);
+            // console.log('성공') //통신 성공여부 표시
             
         }catch(error){
             //로그인 실패해서 그대로
