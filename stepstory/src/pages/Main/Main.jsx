@@ -35,6 +35,7 @@ const Main = () => {
                 //쿠키 확인
                 const cookies = new Cookies();    
                 const accessToken = cookies?.get("access_token");
+                console.log(accessToken);
                 if(accessToken !== null){
                     const headers = {
                         Authorization: `Bearer ${accessToken}`
