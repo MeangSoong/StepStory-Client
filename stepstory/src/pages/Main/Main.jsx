@@ -49,13 +49,10 @@ const Main = () => {
                         //respose에 application/json 형식으로 정보가 날라온다. 모든 정보를 받아야 하기 떄문에 await 처리
                         const response = await axios.get(`users/user`, {
                             headers
+                        }).then((response) => {
+                            console.log(response.data);
+                            console.log(response.data.profile_image_url);
                         });
-                        console.log('유저 정보 조회 요청 받음');
-                        console.log(response.data);
-                        console.log(response.data.profile_image_url);
-                        console.log(response.data.self_info);
-                        console.log(response.data.userId);
-                        console.log(response.data.nickname);
             
                         if(response.data ===null){
                             console.log('login fail');
