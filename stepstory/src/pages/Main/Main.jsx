@@ -19,7 +19,6 @@ const Main = () => {
     const [loggedInInfo, setLoggedInfo] = useState(false);
     const pageInfo = {page: 'main'};
     const [cookies, setCookie, removeCookie] = useCookies(['access_token']);
-    let userData = new Array();
 
     // local storage 한번 확인하고-> 엑세스 토큰(쿠키 안에 있음) -> 이래도 없음면 false처리, 있으면, back에다가 유저정보 확인 정보 확인 가져와 true 전환
     
@@ -50,14 +49,13 @@ const Main = () => {
                         //respose에 application/json 형식으로 정보가 날라온다. 모든 정보를 받아야 하기 떄문에 await 처리
                         const response = await axios.get(`users/user`, {
                             headers
-                        }).then((response) => {
-                            userData = response.data;
-                            console.log(userData);
-                            console.log(userData.profile_image_url);
-                            console.log(userData.self_info);
-                            console.log(userData.userId);
-                            console.log(userData.nickname);
                         });
+                        console.log('유저 정보 조회 요청 받음');
+                        console.log(response.data);
+                        console.log(response.data.profile_image_url);
+                        console.log(response.data.self_info);
+                        console.log(response.data.userId);
+                        console.log(response.data.nickname);
             
                         if(response.data ===null){
                             console.log('login fail');
