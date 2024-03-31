@@ -87,7 +87,7 @@ const Main = () => {
     return (
         <div className="main">
             <div className="main-content">
-                <LeftPane loggedInInfo={loggedInInfo}/>
+                <LeftPane loggedInInfo={loggedInInfo} profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname}/>
                 <RightPane pageInfo={pageInfo}/>
             </div>
             <Footer />

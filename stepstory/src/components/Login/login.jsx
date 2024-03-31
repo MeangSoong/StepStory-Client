@@ -4,13 +4,11 @@ import {  useNavigate } from 'react-router-dom';
 import kakaoLogin from '../../image/loginKakao.png';
 import googleLogin from '../../image/loginGoogle.png';
 import LeftPane from '../LeftPane/LeftPane';
-import customAxios from '../../apis/axios';
 import axios from 'axios';
 
 
 // 오른쪽 화면 컴포넌트
 const LoginRightPane = () => {
-    const [successLogin, setSuccessLogin] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loginError, setLoginError] = useState(false); // 로그인 에러 상태 추가
@@ -96,7 +94,7 @@ const LoginRightPane = () => {
 // 전체 화면 컴포넌트
 const Login = () => {
     //로그인 정보
-    const loggedInInfo = true;
+    const loggedInInfo = false;
 
     return (
         <div className="login">

@@ -7,13 +7,13 @@ import close from "../../image/CloseD.png";
 import Profile from '../Profile/Profile';
 
 // 상단 로그인에 따른 상태변화
-function UpState({ isLoggedIn, profile_image_url, self_intro, userId, nickname }) {
-  return isLoggedIn ? <Login1 profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname} /> : <Logout />;
+function UpState({ loggedInInfo, profile_image_url, self_intro, nickname }) {
+  return loggedInInfo ? <Login1 profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname} /> : <Logout />;
 }
 
 // 하단 로그인에 따른 상태변화
-function DownState({ isLoggedIn }) {
-  return isLoggedIn ? <Login2 /> : null; // 로그인 상태가 아니면 아무 것도 렌더링하지 않음
+function DownState({ loggedInInfo }) {
+  return loggedInInfo ? <Login2 /> : null; // 로그인 상태가 아니면 아무 것도 렌더링하지 않음
 }
 
 // 로그인이 안 돼있을 시 로그인,회원가입 버튼 표기
@@ -39,7 +39,7 @@ const Logout = () => {
   
 
 // 로그인 시 프로필 표기
-const Login1 = (profile_image_url, self_intro, nickname) => (
+const Login1 = ({profile_image_url, self_intro, nickname}) => (
   <Profile profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname} />
 );
 
@@ -64,16 +64,16 @@ const Login2 = () => {
 };
 
 const LeftPane = ({ loggedInInfo, profile_image_url, self_intro, nickname }) => {
-  const isLoggedIn = loggedInInfo ? loggedInInfo.isLoggedIn : false;
+  // const isLoggedIn = loggedInInfo ? loggedInInfo.isLoggedIn : false;
 
   return (
     <div className="left-pane">
       <div className="left-content">
         <Link to={'/'}><img src={logo} alt="Logo" className="logo"/></Link>
-        <UpState isLoggedIn={isLoggedIn} profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname}   />
+        <UpState loggedInInfo={loggedInInfo} profile_image_url={profile_image_url} self_intro={self_intro} nickname={nickname}   />
       </div>
       <div className="logout-container">
-        <DownState isLoggedIn={isLoggedIn} />
+        <DownState loggedInInfo={loggedInInfo} />
       </div>
     </div>
   );
