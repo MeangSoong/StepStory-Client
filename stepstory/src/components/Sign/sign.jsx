@@ -27,11 +27,14 @@ const RightPane = () => {
     const profileImageRef = useRef();
 
     const checkDuplicate = async (value, type) => {
-        let urls = type === 'userId' ? 'auth/id-duplicate' : 'auth/nickname-duplicate';
+        let url = type === 'userId' ? '/auth/id-duplicate' : '/auth/nickname-duplicate';
         try {
-            const response = await customAxios.get(urls, {
-                [type === 'userId' ? 'serial_id' : 'nickname']: value
+            const response = await customAxios.get(url, {
+                params: {
+                    [type === 'userId' ? 'serial_id' : 'nickname']: value
+                }
             });
+            // 응답 처리
             if (type === 'userId') {
                 setUserIdDuplicate(response.data.data);
                 setUserIdChecked(true);
