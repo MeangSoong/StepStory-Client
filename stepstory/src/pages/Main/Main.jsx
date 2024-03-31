@@ -15,7 +15,6 @@ const Main = () => {
     const [userId, setUserId] = useState(null);
     const [nickname, setNickname] = useState(null);
 
-
     const [loggedInInfo, setLoggedInfo] = useState(false);
     const pageInfo = {page: 'main'};
     const [cookies, setCookie, removeCookie] = useCookies(['access_token']);
@@ -67,10 +66,10 @@ const Main = () => {
                             setNickname(response.data.data.nickname);
             
                             //local storage에서 저장, 비밀번호를 제외한 모든걸 저장하는게 좋다.(애초에 안 옴 ㅠ)
-                            localStorage.setItem("profile_image_url",profile_image_url);
-                            localStorage.setItem("self_intro",self_intro);
-                            localStorage.setItem("userId",userId);
-                            localStorage.setItem("nickname",nickname);
+                            localStorage.setItem("profile_image_url", response.data.data.profile_image_url);
+                            localStorage.setItem("self_intro", response.data.data.self_info);
+                            localStorage.setItem("userId", response.data.data.userId.toString());
+                            localStorage.setItem("nickname", response.data.data.nickname);
                         }
                     }catch(error){
                         console.error("Nor info:", error);
