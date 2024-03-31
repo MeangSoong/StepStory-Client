@@ -52,10 +52,10 @@ const Main = () => {
                         });
                         console.log('유저 정보 조회 요청 받음');
                         console.log(response.data);
-                        console.log(response.data.profile_image_url);
-                        console.log(response.data.self_info);
-                        console.log(response.data.userId);
-                        console.log(response.data.nickname);
+                        console.log(response.data.data.profile_image_url);
+                        console.log(response.data.data.self_info);
+                        console.log(response.data.data.userId);
+                        console.log(response.data.data.nickname);
             
                         if(response.data ===null){
                             console.log('login fail');
