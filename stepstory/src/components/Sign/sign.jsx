@@ -5,6 +5,7 @@ import axios from 'axios';
 import './sign.css';
 import uploadImg from '../../image/uploadImg.png'; // 이미지 파일 임포트
 import LeftPane from '../LeftPane/LeftPane';
+import { Cookies } from 'react-cookie';
 
 const RightPane = () => {
     const [userId, setUserId] = useState('');
@@ -76,13 +77,19 @@ const RightPane = () => {
                 password: password
             });
 
-            // 로그인 요청
-            const loginResponse = await axios.post(`${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/login`, {
-                serial_id: userId,
-                password: password
-            });
-            const { access_token } = loginResponse.data;
-
+            let form = new FormData();
+            form.append('serial_id', userId);
+            form.append('password', password);
+            
+            await axios.post(
+                `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/login`,
+                form,
+                { withCredentials: true }
+            );
+            
+            const cookies = new Cookies();
+            const access_token = cookies.get('access_token');
+  
             // 프로필 업데이트 요청
             const formData = new FormData();
             formData.append('file', profileImage);
@@ -145,7 +152,7 @@ const RightPane = () => {
                 <br/>
                 <textarea ref={introductionRef} placeholder="소개글을 입력하세요" className="introduction-input" onChange={(e) => setIntroduction(e.target.value)}></textarea>
                 <br/>
-                <button onClick={handleSignup} disabled={!isSignupComplete} className='bt3'>완료</button>
+                <button onClick={handleSignup} disabled={!userIdChecked || userIdDuplicate || !nicknameChecked || nicknameDuplicate || password !== confirmPassword} className='bt3'>완료</button>
 
             </div>
         </div>
