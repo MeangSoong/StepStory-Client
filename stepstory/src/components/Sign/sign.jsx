@@ -27,8 +27,7 @@ const RightPane = () => {
     const profileImageRef = useRef();
 
     const checkDuplicate = async (value, type) => {
-        let url = `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/`;
-        let urls = type === 'userId' ? 'id-duplicate' : 'nickname-duplicate';
+        let urls = type === 'userId' ? 'auth/id-duplicate' : 'auth/nickname-duplicate';
         try {
             const response = await customAxios.post(urls, {
                 [type === 'userId' ? 'serial_id' : 'nickname']: value
