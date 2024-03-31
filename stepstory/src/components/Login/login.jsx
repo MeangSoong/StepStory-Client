@@ -39,7 +39,7 @@ const LoginRightPane = () => {
         
         try{
             await axios.post(
-            `${process.env.REACT_APP_SERVER_PORT}/auth/login`,
+            `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/login`,
             form,{
                 headers : {
                     'Content-Type': 'multipart/form-data'
