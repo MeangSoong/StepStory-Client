@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
+import customAxios from './../../apis/axios'
 import axios from 'axios';
 import './sign.css';
 import uploadImg from '../../image/uploadImg.png'; // 이미지 파일 임포트
@@ -27,9 +28,9 @@ const RightPane = () => {
 
     const checkDuplicate = async (value, type) => {
         let url = `${process.env.REACT_APP_SERVER_PORT}/api/v1/auth/`;
-        url += type === 'userId' ? 'id-duplicate' : 'nickname-duplicate';
+        let urls = type === 'userId' ? 'id-duplicate' : 'nickname-duplicate';
         try {
-            const response = await axios.post(url, {
+            const response = await customAxios.post(url, {
                 [type === 'userId' ? 'serial_id' : 'nickname']: value
             });
             if (type === 'userId') {
