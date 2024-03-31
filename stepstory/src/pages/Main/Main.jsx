@@ -52,13 +52,12 @@ const Main = () => {
                             headers
                         }).then((response) => {
                             userData = response.data;
+                            console.log(userData);
+                            console.log(userData.profile_image_url);
+                            console.log(userData.self_info);
+                            console.log(userData.userId);
+                            console.log(userData.nickname);
                         });
-
-                        console.log(userData);
-                        console.log(userData.profile_image_url);
-                        console.log(userData.self_info);
-                        console.log(userData.userId);
-                        console.log(userData.nickname);
             
                         if(response.data ===null){
                             console.log('login fail');
