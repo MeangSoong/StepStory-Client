@@ -54,7 +54,7 @@ const Login2 = () => {
   const headers = {
     Authorization: `Bearer ${accessToken}`
   };
-  console.log(accessToken);
+  console.log(headers);
   const handleLogoutClick = async() => {
     await axios.post('/auth/logout', {
     headers
