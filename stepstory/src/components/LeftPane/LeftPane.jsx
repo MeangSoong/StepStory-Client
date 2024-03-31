@@ -51,14 +51,9 @@ const Login2 = () => {
   const navigate = useNavigate(); // useNavigate 훅 사용
   const cookies = new Cookies();
   const accessToken = cookies.get('access_token');
-
-  if(accessToken !== null){
-    console.log('access token 있음')
-    const headers = {
-      Authorization: `Bearer ${accessToken}`
-    };
-  }
-
+  const headers = {
+    Authorization: `Bearer ${accessToken}`
+  };
   const handleLogoutClick = () => {
     axios.post('/auth/logout', {
     headers
