@@ -4345,13 +4345,6 @@ detect-port-alt@^1.1.6:
     address "^1.0.1"
     debug "^2.6.0"
 
-"detective@git://github.com/shtylman/node-detective.git#06d5cb":
-  version "0.3.0-dz0"
-  resolved "git+ssh://git@github.com/shtylman/node-detective.git#06d5cb4534818860b5a7f8d0a321dc7ae86d8e74"
-  dependencies:
-    escodegen "0.0.15"
-    esprima "1.0.2"
-
 didyoumean@^1.2.2:
   version "1.2.2"
   resolved "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz"
@@ -8967,13 +8960,6 @@ require-from-string@^2.0.2:
   version "2.0.2"
   resolved "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz"
   integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
-
-required@0.0.8:
-  version "0.0.8"
-  resolved "https://registry.npmjs.org/required/-/required-0.0.8.tgz"
-  integrity sha512-wasO+1YxXedAmCtUuer65B28uyxOMeRZ97PHMCcMxpbq4ZVzlsHIhRFD2pqFLXQvqGU1fTjEmuXbXQXJrDg8dQ==
-  dependencies:
-    detective "git://github.com/shtylman/node-detective.git#06d5cb"
 
 requires-port@^1.0.0:
   version "1.0.0"
