@@ -23,7 +23,7 @@ export default function PostBanner () {
                     if(response.data.data.data.travelReportList !==null){
                         console.log("데이터 도착");
                         for(let i = 0; i<3; i++ ){
-                            postCollection.push(response.data.data.data.myTravelReportList[i]);
+                            postCollection.push(response.data.data.data.travelReportList[i]);
                         }
                         console.log(postCollection[0]);
                     }
