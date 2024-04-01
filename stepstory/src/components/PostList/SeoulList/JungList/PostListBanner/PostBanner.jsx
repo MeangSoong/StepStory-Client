@@ -25,7 +25,7 @@ export default function PostBanner () {
                         for(let i = 0; i<3; i++ ){
                             postCollection.push(response.data.data.data.travelReportList[i]);
                         }
-                        console.log(postCollection[0]);
+                        console.log(postCollection[0].nickname);
                     }
                 }catch(error){
                     console.error("data load error: ", error);
