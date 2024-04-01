@@ -36,9 +36,9 @@ export default function PostBanner () {
 
     return (
         <div className='PostBanner'>
-            {postCollection.slice(0, 3).map((post, index) => (
-                <Post key={index} {...post} /> // 구조 분해 할당을 사용하여 전달
-            ))}
+            <Post props = {postCollection[0]} />
+            <Post props = {postCollection[1]} />
+            <Post props = {postCollection[2]} />
         </div>
     );
 };
