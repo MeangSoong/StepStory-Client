@@ -161,7 +161,7 @@ const RightPane = () => {
 
 const Sign = () => {
     //로그인 정보
-    const loggedInInfo = {isLoggedIn: false};
+    const loggedInInfo = false;
 
 
     return (

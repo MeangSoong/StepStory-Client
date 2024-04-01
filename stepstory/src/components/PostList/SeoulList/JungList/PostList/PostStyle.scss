@@ -1,0 +1,69 @@
+.Post{
+    display: flex;
+    flex-direction: row;
+    width: 510px;
+    height: 160px;
+    margin: 5px;
+    border: 1px;
+    border-radius: 10px;
+    background-color: beige;
+}
+
+.PostImg{
+    justify-self: flex-start;
+    align-self: center;
+    width: 210px;
+    height: 140px;
+    margin: 10px 15px;
+    border-radius: 10px;
+}
+
+.PostDescrition{
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-top: 10px;
+    
+}
+
+.PostUser{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    .PostUserProfileImg{
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+    }
+
+    .usernameAndWantTogo{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 10px;
+
+        .PostUsername{
+            text-align: left;
+            justify-content: flex-start;
+        }
+    
+        .PostWantToGoCount{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .PostStepImg{
+                width: 16px;
+                height: 16px;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.postTitle{
+    font-size: 20px;
+    margin-top: 15px;
+}
