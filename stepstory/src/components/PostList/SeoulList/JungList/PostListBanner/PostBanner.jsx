@@ -36,9 +36,9 @@ export default function PostBanner () {
 
     return (
         <div className='PostBanner'>
-            <Post props = {postCollection[0]} />
-            <Post props = {postCollection[1]} />
-            <Post props = {postCollection[2]} />
+            <Post nickname={postCollection[0].nickname} thumbnailUrl={postCollection[0].thumbnailUrl} profileImageUrl={postCollection[0].profileImageUrl} wantToGoCount={postCollection[0].wantToGoCount} title={postCollection[0].title} />
+            <Post nickname={postCollection[1].nickname} thumbnailUrl={postCollection[1].thumbnailUrl} profileImageUrl={postCollection[1].profileImageUrl} wantToGoCount={postCollection[1].wantToGoCount} title={postCollection[1].title} />
+            <Post nickname={postCollection[2].nickname} thumbnailUrl={postCollection[2].thumbnailUrl} profileImageUrl={postCollection[2].profileImageUrl} wantToGoCount={postCollection[2].wantToGoCount} title={postCollection[2].title} />
         </div>
     );
 };
