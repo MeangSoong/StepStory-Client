@@ -56,7 +56,7 @@ import PostBanner from '../../PostList/SeoulList/JungList/PostListBanner/PostBan
 import axios from './../../../apis/axios';
 import { Link, Outlet } from 'react-router-dom';
 export default function SeoulMap () {
-
+    const [isBannerVisible, setIsBannerVisible] = useState(false);
     const [data, setData] = useState(null);
 
     useEffect(() => {
@@ -94,13 +94,16 @@ export default function SeoulMap () {
         }
     })
 
+    const show = (newData) => {
+        setIsBannerVisible(newData);
+    }
 
     return (
         <div className='seoul-map'>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="800" height="728" viewBox="0 0 800 656" stroke-linecap="round" stroke-linejoin="round">
                 <g id="Seoul">
                     <Jongno />
-                    <Jung />
+                    <Jung showPostList={show}/>
                     <Yongsan />
                     <Seongdong />
                     <Gwangjin />
@@ -151,6 +154,7 @@ export default function SeoulMap () {
             <YangcheonLoader />
             <YeongdeungpoLoader/>
             <YongsanLoader />
+            {isBannerVisible? <PostBanner />:null}
         </div>
     );
 };
