@@ -3,6 +3,6 @@
     border: none;
     background-color: transparent;
     cursor: pointer;
-    align-items: right;
     justify-content: right;
+    padding-top: 20px;
 }

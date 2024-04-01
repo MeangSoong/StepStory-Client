@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,  } from 'react';
 import './loginStyle.css'; // 스타일 파일을 불러옵니다.
-import {  useNavigate } from 'react-router-dom'; 
+import {  useNavigate } from 'react-router-dom';
 import kakaoLogin from '../../image/loginKakao.png';
 import googleLogin from '../../image/loginGoogle.png';
 import LeftPane from '../LeftPane/LeftPane';

@@ -1,3 +1,4 @@
 .post-step2-page-container {
     background-color: #e2f0ff;
+    overflow-y: auto;
 }
