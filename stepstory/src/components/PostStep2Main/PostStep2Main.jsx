@@ -1,18 +1,31 @@
 import React from "react";
+import { useNavigate} from "react-router-dom";
 import ImageSlider from "../ImageSlider/ImageSlider";
 import Map from "../Map/Map";
 import NextPageButton from "../Buttons/NextPageButton/NextPageButton";
 import BackPageButton from "../Buttons/BackPageButton/BackPageButton";
 import './style.css';
 
+
+
 export default function PostStep2Main({ images, locationsGps}) {
+  const navigate = useNavigate();
+
+  const handlestep1 = () => {
+    navigate('/post-step1');
+  };
+
+  const handlestep3 = () => {
+    navigate('/post-step3');
+  };
+
   return (
     <div className="post-step-container">
       <div className="left-panel-post2">
         <div className="carousel">
           <ImageSlider className = "image-slider-post2" images={images} />
         </div>
-        <BackPageButton className="back" />
+        <BackPageButton className="back" onClick={handlestep1}/>
       </div>
       <div className="right-panel-post2">
         <div className="steps-list-container">
@@ -28,7 +41,7 @@ export default function PostStep2Main({ images, locationsGps}) {
         <div className="location-map">
           <Map locationsGps={locationsGps} />
         </div>
-        <NextPageButton className="next" />
+        <NextPageButton className="next" onClick={handlestep3} />
       </div>
     </div>
   );
