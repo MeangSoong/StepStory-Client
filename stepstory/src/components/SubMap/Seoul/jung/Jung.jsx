@@ -28,6 +28,7 @@ export default function Jung () {
 
     const handleonclick = () => {
         setIsBannerVisible(true);
+        console.log("너 재능 있어");
     };
 
 
