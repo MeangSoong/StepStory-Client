@@ -92,15 +92,19 @@ const RightPane = () => {
   
             // 프로필 업데이트 요청
             const formData = new FormData();
+            formData.append('message', new Blob([JSON.stringify({ nickname, self_intro: introduction })], { type: 'application/json' }));
             formData.append('file', profileImage);
-            formData.append('message', JSON.stringify({ nickname, self_intro: introduction }));
 
-            await axios.patch(`${process.env.REACT_APP_SERVER_PORT}/api/v1/users/user`, formData, {
+            try {
+            const response = await axios.patch(`${process.env.REACT_APP_SERVER_PORT}/api/v1/users/user`, formData, {
                 headers: {
-                    'Authorization': `Bearer ${access_token}`,
-                    // 'Content-Type': 'multipart/form-data'을 제거하세요.
+                'Authorization': `Bearer ${access_token}`,
                 },
             });
+            console.log(response.data);
+            } catch (error) {
+            console.error('Request failed:', error);
+            }
 
             setIsSignupComplete(true);
             alert("회원가입이 완료되었습니다.");
