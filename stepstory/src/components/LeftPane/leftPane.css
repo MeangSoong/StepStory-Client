@@ -94,6 +94,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s; /* 배경색 변경 시 부드럽게 변화하도록 추가 */
+    font-family: 'KCC-Hanbit', sans-serif;
 }
 
 /* 호버 상태일 때 */
