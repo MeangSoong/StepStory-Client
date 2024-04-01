@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import PostStep3Main from "../../components/PostStep3Main/PostStep3Main.jsx";
 import Header from "../../components/Header/Header.jsx";
+import { useParams } from "react-router-dom";
+import { Cookies } from "react-cookie";
+import axios from "../../apis/axios.js";
 
 export default function PostStep2() {
     const [images, setImages] = useState([]);

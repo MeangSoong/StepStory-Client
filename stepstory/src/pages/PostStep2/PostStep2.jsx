@@ -4,6 +4,7 @@ import axios from "./../../apis/axios"
 import PostStep2Main from "../../components/PostStep2Main/PostStep2Main";
 import Header from "../../components/Header/Header";
 import './style.css';
+import { useParams } from "react-router-dom";
 
 const headerExample = "새 게시물 만들기";
 
