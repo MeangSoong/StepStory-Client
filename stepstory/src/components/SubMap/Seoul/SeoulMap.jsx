@@ -53,8 +53,7 @@ import YeongdeungpoLoader from './yeongdeungpo/YeongdeungpoLoader';
 import Yongsan from './yongsan/Yongsan';
 import YongsanLoader from './yongsan/YongsanLoader';
 import PostBanner from '../../PostList/SeoulList/JungList/PostListBanner/PostBanner';
-import axios from './../../../apis/axios';
-import { Link, Outlet } from 'react-router-dom';
+
 export default function SeoulMap () {
     const [isBannerVisible, setIsBannerVisible] = useState(false);
     const [data, setData] = useState(null);
@@ -94,16 +93,20 @@ export default function SeoulMap () {
         }
     })
 
-    const show = (newData) => {
-        setIsBannerVisible(newData);
-    }
+    const toggleBannerVisibility = (isVisible) => {
+        if(isBannerVisible===false){
+            setIsBannerVisible(isVisible);
+        }else{
+            setIsBannerVisible(!isVisible);
+        }
+    };
 
     return (
         <div className='seoul-map'>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="800" height="728" viewBox="0 0 800 656" stroke-linecap="round" stroke-linejoin="round">
                 <g id="Seoul">
                     <Jongno />
-                    <Jung showPostList={show}/>
+                    <Jung showPostList={toggleBannerVisibility}/>
                     <Yongsan />
                     <Seongdong />
                     <Gwangjin />
