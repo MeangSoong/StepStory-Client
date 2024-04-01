@@ -16,7 +16,7 @@ export default function PostStep2Main({ images, locationsGps}) {
       </div>
       <div className="right-panel-post2">
         <div className="steps-list-container">
-          <h3 className="steps-list-title">위치 정보</h3>
+          <h3 className="steps-list-title">🗺️ 위치 정보 🗺️</h3>
           <ul className="steps-list">
             <li>1. 가산디지털단지 8번출구</li>
             <li>2. 가산 디지털 단지 가는 지하철</li>

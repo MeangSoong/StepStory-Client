@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './step1Style.css';
 import logo from '../../image/Blogo.svg';
 import Calendar from "./calendar";
@@ -6,6 +7,7 @@ import crownIcon from '../../image/crown.png';
 import MapComponent from '../../components/Map/Map';
 
 function PostStep() {
+    const navigate = useNavigate(); // useNavigate 훅 사용
     const location = '새 게시글 작성하기 (Step1)';
     const [images, setImages] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -50,6 +52,10 @@ function PostStep() {
         if (selectedImageIndex === index) {
             setSelectedImageIndex(null); // 선택된 이미지를 삭제할 때 선택 해제
         }
+    };
+
+    const handlePost2Click = () => {
+        navigate('/post-step2');
     };
 
 
@@ -145,10 +151,10 @@ function PostStep() {
                         ))}
                     </div>
                     <div>
-                        <button className="select-photo" onClick={handleSelectPhoto}>대표사진 선택</button>
+                        <button className="select-photo" >대표사진 선택</button>
                     </div>
                     <div className="pagination-controls">
-                        <button> NEXT(▶)</button>
+                        <button onClick={handlePost2Click}> NEXT(▶)</button>
                     </div>
                 </div>
             </div>
