@@ -14,6 +14,29 @@ export default function ViewPost() {
 
   const { travelReportId } = useParams();
 
+  const comments = [
+    {
+      user: "양혜인",
+      date: "2024.03-09",
+      content: "여행할게 아니라 출석을 하라고"
+    },
+    {
+      user: "맹인호",
+      date: "2024.03-09",
+      content: "동겸아 출석좀 잘해라"
+    },
+    {
+      user: "임창희",
+      date: "2024.03-09",
+      content: "프론트 파이팅"
+    },
+    {
+      user: "이인홍",
+      date: "2024.03-09",
+      content: "백엔드도 파이팅"
+    }
+  ];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -58,7 +81,7 @@ export default function ViewPost() {
             <div className="left-panel-view-post">
                 <PostCard 
                   images={images}
-                  profileImage={commonUserSourseDto.profileImgUrl || DefaultProfile}
+                  profileImage={commonUserSourseDto.profileImgUrl}
                   user={commonUserSourseDto.nickname} 
                   date={new Date(createdAt).toLocaleDateString()}
                   title={title} 
