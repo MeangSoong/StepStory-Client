@@ -27,18 +27,37 @@ import JB from './Jeonbuk/JB';
 import JN from './Jeonnam/JN';
 import SU from './Seoul/SU';
 import { Link } from 'react-router-dom';
+import axios from '../../apis/axios';
+
 
 export default function MainMap ()  {
 
     const [data, setData] = useState(null);
     //지역별 게시글 수 
     
-    useEffect(() =>{
-        if(sampledata){
-            setData(sampledata[0].data);
-        }
-    },[data])
+    // useEffect(() =>{
+    //     if(sampledata){
+    //         setData(sampledata[0].data);
+    //     }
+    // },[data])
     
+    useEffect(()=>{
+        const fetchCountData = async () =>{
+            const response = await axios.get(
+                `/no-auth/step/main`
+            );
+
+            if(response.data.data !==null){
+                setData(response.data.data)
+            }else{
+                console.log("upload fail");
+            }
+        }
+        fetchCountData();
+    })
+
+
+
     useEffect(() => {
         if(data){
             //<svg>영역 svg로 지정
@@ -72,6 +91,9 @@ export default function MainMap ()  {
 
         }
     },[data])
+
+
+
 
     return (
         <div className='main-map'>
