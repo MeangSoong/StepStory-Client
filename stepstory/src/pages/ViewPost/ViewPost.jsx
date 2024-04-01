@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import PostCard from "../../components/PostCard/PostCard";
 import Map from "../../components/Map/Map";
@@ -11,7 +12,7 @@ export default function ViewPost() {
   const [postData, setPostData] = useState(null);
   const [showComments, setShowComments] = useState(false);
 
-  const travelReportId = '1';
+  const { travelReportId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
