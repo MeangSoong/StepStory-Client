@@ -18,6 +18,7 @@ export default function Jung () {
         setIsHovered(false);
         document.querySelectorAll('.paw_jung').forEach((paw_jung) => {
             paw_jung.classList.add('disappear'); // 발자국에 disappear 클래스 추가
+            console.log("좀 돼봐")
         });
     };
 
