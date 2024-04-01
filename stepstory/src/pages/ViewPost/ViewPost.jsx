@@ -11,7 +11,7 @@ export default function ViewPost() {
   const [postData, setPostData] = useState(null);
   const [showComments, setShowComments] = useState(false);
 
-  const travelReportId = '1';
+  const { travelReportId } = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
