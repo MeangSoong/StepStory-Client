@@ -4,7 +4,7 @@ import './PostStyle.scss';
 import wanttogo from '../../../../../assets/images/buttons/wanttogobutton.png';
 
 
-export default function Post (nickname,thumbnailUrl,profileImageUrl,wantToGoCount,title) {
+export default function Post ({nickname,thumbnailUrl,profileImageUrl,wantToGoCount,title}) {
     
     console.log(nickname);
     return (
