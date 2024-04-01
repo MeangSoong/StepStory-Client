@@ -33,13 +33,7 @@ import axios from '../../apis/axios';
 export default function MainMap ()  {
 
     const [data, setData] = useState(null);
-    //지역별 게시글 수 
-    
-    // useEffect(() =>{
-    //     if(sampledata){
-    //         setData(sampledata[0].data);
-    //     }
-    // },[data])
+
     
     useEffect(()=>{
         const fetchCountData = async () =>{
@@ -54,7 +48,7 @@ export default function MainMap ()  {
             }
         }
         fetchCountData();
-    })
+    },[])
 
 
 

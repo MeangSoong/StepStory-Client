@@ -53,16 +53,28 @@ import YeongdeungpoLoader from './yeongdeungpo/YeongdeungpoLoader';
 import Yongsan from './yongsan/Yongsan';
 import YongsanLoader from './yongsan/YongsanLoader';
 import PostBanner from '../../PostList/SeoulList/JungList/PostListBanner/PostBanner';
+import axios from '../../../apis/axios'
+
 
 export default function SeoulMap () {
     const [isBannerVisible, setIsBannerVisible] = useState(false);
     const [data, setData] = useState(null);
 
-    useEffect(() => {
-        if(sampleData){
-            setData(sampleData.data);
+    
+    useEffect(()=>{
+        const fetchCountData = async () =>{
+            const response = await axios.get(
+                `/no-auth/step/main/1`
+            );
+
+            if(response.data.data !==null){
+                setData(response.data.data)
+            }else{
+                console.log("upload fail");
+            }
         }
-    },[data]);
+        fetchCountData();
+    },[])
 
     useEffect(() => {
         if(data){
