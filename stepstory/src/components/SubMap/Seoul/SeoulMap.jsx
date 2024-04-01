@@ -54,6 +54,7 @@ import Yongsan from './yongsan/Yongsan';
 import YongsanLoader from './yongsan/YongsanLoader';
 import PostBanner from '../../PostList/SeoulList/JungList/PostListBanner/PostBanner';
 import axios from './../../../apis/axios';
+import { Link } from 'react-router-dom';
 export default function SeoulMap () {
 
     const [data, setData] = useState(null);
@@ -93,16 +94,13 @@ export default function SeoulMap () {
         }
     })
 
-    const getPostList = () => {
-        return <PostBanner />
-    }
 
     return (
         <div className='seoul-map'>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny" width="800" height="728" viewBox="0 0 800 656" stroke-linecap="round" stroke-linejoin="round">
                 <g id="Seoul">
                     <Jongno />
-                    <Jung onClick={() => getPostList}/>
+                    <Link to={'/jungguListPage'}><Jung /></Link>
                     <Yongsan />
                     <Seongdong />
                     <Gwangjin />
