@@ -54,7 +54,7 @@ import Yongsan from './yongsan/Yongsan';
 import YongsanLoader from './yongsan/YongsanLoader';
 import PostBanner from '../../PostList/SeoulList/JungList/PostListBanner/PostBanner';
 import axios from './../../../apis/axios';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 export default function SeoulMap () {
 
     const [data, setData] = useState(null);
@@ -152,6 +152,7 @@ export default function SeoulMap () {
             <YeongdeungpoLoader/>
             <YongsanLoader />
             <PostBanner className=''/>
+            <Outlet/>
         </div>
     );
 };
