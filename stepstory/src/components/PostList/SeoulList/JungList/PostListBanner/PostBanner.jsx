@@ -16,7 +16,7 @@ export default function PostBanner () {
             const uploadData = async () =>{
                 try{
                     const response = await axios.get(
-                        `/no-auth/travel-report-list/1?city=Seoul&disctrict=Jung`
+                        `/no-auth/travel-report-list/1?city=Seoul&district=Jung`
                     )
                     
                     //게시글 배열에 객체로 주입
