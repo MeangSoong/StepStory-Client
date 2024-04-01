@@ -31,6 +31,7 @@ export default function PostBanner () {
                     console.error("data load error: ", error);
                 }
             }
+            uploadData();
         })
 
     return (
