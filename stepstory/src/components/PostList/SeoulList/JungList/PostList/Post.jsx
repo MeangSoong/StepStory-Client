@@ -1,10 +1,10 @@
 import React from 'react';
 import './PostStyle.scss';
-// import bestPostImg from '../../../assets/images/bestpostdummyimg.avif';
 import wanttogo from '../../../../../assets/images/buttons/wanttogobutton.png';
+import { Link } from 'react-router-dom';
 
 
-export default function Post ({nickname,thumbnailUrl,profileImageUrl,wantToGoCount,title}) {
+export default function Post ({nickname,thumbnailUrl,profileImageUrl,wantToGoCount,title,travelReportId}) {
     
     console.log(nickname);
     return (
@@ -23,10 +23,11 @@ export default function Post ({nickname,thumbnailUrl,profileImageUrl,wantToGoCou
                         </div>
                     </div>
                 </div>
-                <div className='postTitle'>
-                    {title}
-                </div>
-
+                <Link to={`/view-post/${travelReportId}`}>
+                    <div className='postTitle'>
+                        {title}
+                    </div>
+                </Link>
             </div>
         </div>
     );
