@@ -121,7 +121,7 @@ const RightPane = () => {
     return (
         <div className="right-pane">
             <div className="add-info-box">
-                <h1 className="centerAlign">추가 사용자 정보를 입력해주세요✏️</h1>
+                <h1 className="centerAlign">✏️ 추가 사용자 정보를 입력해주세요 ✏️</h1>
                 <input
                     type="file"
                     id="upload-button"
