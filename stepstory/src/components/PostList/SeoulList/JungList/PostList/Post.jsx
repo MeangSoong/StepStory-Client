@@ -4,7 +4,7 @@ import './PostStyle.scss';
 import wanttogo from '../../../../../assets/images/buttons/wanttogobutton.png';
 
 
-export default function Post ({ props }) {
+export default function Post (props) {
     
     console.log(props.nickname);
     return (
