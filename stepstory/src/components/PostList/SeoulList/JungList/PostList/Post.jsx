@@ -4,27 +4,27 @@ import './PostStyle.scss';
 import wanttogo from '../../../../../assets/images/buttons/wanttogobutton.png';
 
 
-export default function Post ({ thumbnailUrl, profileImageUrl, nickname, wantToGoCount, title }) {
+export default function Post ({ props }) {
     
-    console.log(nickname);
+    console.log(props.nickname);
     return (
         <div className='Post'>
-            <img src={thumbnailUrl} className='PostImg' alt='PostImg' />
+            <img src={props.thumbnailUrl} className='PostImg' alt='PostImg' />
             <div className='PostDescrition'>
                 <div className='PostUser'>
-                    <img src={profileImageUrl} className='PostUserProfileImg' alt='profileImg' />
+                    <img src={props.profileImageUrl} className='PostUserProfileImg' alt='profileImg' />
                     <div className='usernameAndWantTogo'>
                         <div className='PostUsername'>
-                            {nickname}
+                            {props.nickname}
                         </div>
                         <div className='PostWantToGoCount'>
                             <img src={wanttogo} className='PostStepImg' alt='PostStepImg' />
-                                {wantToGoCount}
+                                {props.wantToGoCount}
                         </div>
                     </div>
                 </div>
                 <div className='postTitle'>
-                    {title}
+                    {props.title}
                 </div>
 
             </div>
