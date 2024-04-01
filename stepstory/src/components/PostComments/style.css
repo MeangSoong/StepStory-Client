@@ -1,4 +1,5 @@
 .post-comments {
   display: flex;
   flex-direction: column;
+  font-family: 'KCC-Hanbit', sans-serif;
 }
