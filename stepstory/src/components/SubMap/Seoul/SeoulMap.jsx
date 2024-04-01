@@ -151,8 +151,6 @@ export default function SeoulMap () {
             <YangcheonLoader />
             <YeongdeungpoLoader/>
             <YongsanLoader />
-            <PostBanner className=''/>
-            <Outlet/>
         </div>
     );
 };

@@ -17,9 +17,7 @@ export default function Router() {
         <Route path="/" element={<Main />}/>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Sign />} />
-        <Route path="/seoul" element={<MainSeoul />} >
-          <Route path="jungguListPage" element={<PostBanner/>}/>
-        </Route>
+        <Route path="/seoul" element={<MainSeoul />} />
         <Route path="/post-step1" element={<PostStep1 />} />
         <Route path="/post-step2" element={<PostStep2 />} />
         <Route path="/post-step3" element={<PostStep3 />} />
