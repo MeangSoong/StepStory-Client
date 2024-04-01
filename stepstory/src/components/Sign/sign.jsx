@@ -6,6 +6,7 @@ import './sign.css';
 import uploadImg from '../../image/uploadImg.png'; // 이미지 파일 임포트
 import LeftPane from '../LeftPane/LeftPane';
 import { Cookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const RightPane = () => {
     const [userId, setUserId] = useState('');
@@ -26,6 +27,8 @@ const RightPane = () => {
     const confirmPasswordRef = useRef();
     const introductionRef = useRef();
     const profileImageRef = useRef();
+
+    const navigate = useNavigate();
 
     const checkDuplicate = async (value, type) => {
         let url = type === 'userId' ? '/auth/id-duplicate' : '/auth/nickname-duplicate';
@@ -108,6 +111,8 @@ const RightPane = () => {
 
             setIsSignupComplete(true);
             alert("회원가입이 완료되었습니다.");
+            navigate('/');
+            
         } catch (error) {
             console.error("Error during sign up:", error);
         }
@@ -165,7 +170,7 @@ const RightPane = () => {
 
 const Sign = () => {
     //로그인 정보
-    const loggedInInfo = {isLoggedIn: false};
+    const loggedInInfo = false;
 
 
     return (
