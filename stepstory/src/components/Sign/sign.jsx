@@ -6,6 +6,7 @@ import './sign.css';
 import uploadImg from '../../image/uploadImg.png'; // 이미지 파일 임포트
 import LeftPane from '../LeftPane/LeftPane';
 import { Cookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
 const RightPane = () => {
     const [userId, setUserId] = useState('');
@@ -26,6 +27,8 @@ const RightPane = () => {
     const confirmPasswordRef = useRef();
     const introductionRef = useRef();
     const profileImageRef = useRef();
+
+    const navigate = useNavigate();
 
     const checkDuplicate = async (value, type) => {
         let url = type === 'userId' ? '/auth/id-duplicate' : '/auth/nickname-duplicate';
@@ -92,18 +95,24 @@ const RightPane = () => {
   
             // 프로필 업데이트 요청
             const formData = new FormData();
+            formData.append('message', new Blob([JSON.stringify({ nickname, self_intro: introduction })], { type: 'application/json' }));
             formData.append('file', profileImage);
-            formData.append('message', JSON.stringify({ nickname, self_info: introduction }));
 
-            await axios.patch(`${process.env.REACT_APP_SERVER_PORT}/api/v1/users/user`, formData, {
+            try {
+            const response = await axios.patch(`${process.env.REACT_APP_SERVER_PORT}/api/v1/users/user`, formData, {
                 headers: {
-                    'Authorization': `Bearer ${access_token}`,
-                    'Content-Type': 'multipart/form-data',
+                'Authorization': `Bearer ${access_token}`,
                 },
             });
+            console.log(response.data);
+            } catch (error) {
+            console.error('Request failed:', error);
+            }
 
             setIsSignupComplete(true);
             alert("회원가입이 완료되었습니다.");
+            navigate('/');
+            
         } catch (error) {
             console.error("Error during sign up:", error);
         }
